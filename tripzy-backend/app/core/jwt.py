@@ -1,5 +1,6 @@
 from datetime import datetime, timedelta
 from jose import jwt
+from app.core.settings import settings
 
 from app.core.settings import settings
 
@@ -17,3 +18,14 @@ def create_access_token(data: dict):
     )
 
     return encoded_jwt
+
+def decode_access_token(token: str):
+    try:
+        payload = jwt.decode(
+            token,
+            settings.SECRET_KEY,
+            algorithms=[settings.ALGORITHM]
+        )
+        return payload
+    except jwt.JWTError:
+        return None
