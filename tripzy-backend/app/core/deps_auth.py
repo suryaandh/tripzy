@@ -23,7 +23,7 @@ def get_current_user(
     
     user_id = payload.get("sub")
 
-    user = get_user_by_id(db, user_id)
+    user = get_user_by_id(db, int(user_id))
 
     if not user:
         raise HTTPException(

@@ -33,3 +33,18 @@ class UserProfileResponse(BaseModel):
 
     class Config:
         from_attributes = True
+
+
+class MeResponse(BaseModel):
+    id: int
+    email: str
+    first_name: Optional[str] = None
+    last_name: Optional[str] = None
+    dob: Optional[date] = None
+    gender: Optional[str] = None
+    avatar_url: Optional[str] = None
+    address: Optional[str] = None
+    phone_number: Optional[str] = None
+
+    class Config:
+        from_attributes = True

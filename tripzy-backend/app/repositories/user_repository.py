@@ -13,7 +13,6 @@ def create_user(db: Session, email: str, password: str):
     )
 
     db.add(user)
-    db.flush()
     db.commit()
     db.refresh(user)
 
